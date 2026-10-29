@@ -1,0 +1,58 @@
+{
+  "title": "Kitchen Dashboard",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Kitchen Dashboard",
+        "description": "Enter the dashboard address on your local network or Tailscale. No pairing key or Home Assistant login is needed.",
+        "data": {
+          "host": "Dashboard address",
+          "port": "Port"
+        }
+      },
+      "reconfigure": {
+        "title": "Connect Kitchen Dashboard",
+        "description": "Enter the dashboard address on your local network or Tailscale. No pairing key or Home Assistant login is needed.",
+        "data": {
+          "host": "Dashboard address",
+          "port": "Port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect. Check the address and port, and update the dashboard to version 0.2.0 or later."
+    },
+    "abort": {
+      "already_configured": "This dashboard is already configured.",
+      "wrong_device": "This address belongs to a different dashboard.",
+      "reconfigure_successful": "Connection settings updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Customize buttons",
+        "description": "Choose an action, icon, and colors for Custom Buttons 1\u20133. Leave an action empty to use its local WLED preset. Appearance stays saved on the display when HA is offline.",
+        "data": {
+          "cooking": "Custom Button 1 \u2014 scene or script",
+          "cooking_icon": "Custom Button 1 \u2014 icon",
+          "cooking_color": "Custom Button 1 \u2014 icon color",
+          "cooking_background": "Custom Button 1 \u2014 background color",
+          "evening": "Custom Button 2 \u2014 scene or script",
+          "evening_icon": "Custom Button 2 \u2014 icon",
+          "evening_color": "Custom Button 2 \u2014 icon color",
+          "evening_background": "Custom Button 2 \u2014 background color",
+          "night": "Custom Button 3 \u2014 scene or script",
+          "night_icon": "Custom Button 3 \u2014 icon",
+          "night_color": "Custom Button 3 \u2014 icon color",
+          "night_background": "Custom Button 3 \u2014 background color"
+        }
+      }
+    },
+    "error": {
+      "invalid_entity": "Choose an existing scene or script, or clear the field.",
+      "invalid_icon": "Choose a supported Material Design icon (mdi:).",
+      "invalid_color": "Choose an RGB color with values between 0 and 255."
+    }
+  }
+}

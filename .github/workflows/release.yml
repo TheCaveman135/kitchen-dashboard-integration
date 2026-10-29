@@ -1,0 +1,25 @@
+name: Publish integration
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+jobs:
+  validate:
+    uses: ./.github/workflows/tests.yml
+  publish:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - name: Build integration package
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: python3 tools/package.py
+      - name: Upload integration package
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$RELEASE_TAG" dist/kitchen_dashboard.zip --clobber
