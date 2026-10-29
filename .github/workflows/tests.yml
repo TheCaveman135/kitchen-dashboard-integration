@@ -1,6 +1,7 @@
 name: Validate integration
 on:
   push:
+    branches: [main]
   pull_request:
   workflow_call:
   workflow_dispatch:
@@ -26,5 +27,6 @@ jobs:
         uses: hacs/action@main
         with:
           category: integration
-          ignore: brands
+          # Catalog submission checks are not required for a custom repository.
+          ignore: brands license
           comment: false

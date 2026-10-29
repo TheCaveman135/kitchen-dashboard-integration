@@ -52,7 +52,7 @@ The 12 integration tests use an isolated Home Assistant instance and a fake dash
 python3 tests/ha/test_integration.py
 ```
 
-CI runs these tests plus the official HACS repository validator. The global Home Assistant Brands check is excluded because this is a custom HACS repository. No listing in the default HACS catalog is claimed.
+CI runs these tests plus the official HACS repository validator. Catalog submission checks for global Home Assistant branding and an open-source license are excluded because this is a custom HACS repository. No listing in the default HACS catalog is claimed.
 
 For a release, update `custom_components/kitchen_dashboard/manifest.json`, commit, and publish a matching `vX.Y.Z` GitHub release. The release workflow validates the integration and uploads its installable ZIP. It has no access to dashboard firmware or its update feed.
 
